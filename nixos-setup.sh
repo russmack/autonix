@@ -56,8 +56,7 @@ cp configuration.nix /mnt/etc/nixos/
 
 # Install
 nixos-install
-useradd -c russ -m russ
-reboot
+shutdown now
 
 # Possible error: lvmconfig failed
 # Solution: nix-channel --update
