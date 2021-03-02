@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Install Nixos
 
@@ -8,8 +8,6 @@
 # 20GB drive:
 #   17GB primary
 #   2GB swap
-
-sudo su
 
 # Partition
 
@@ -52,11 +50,9 @@ mkswap -L swap /dev/sda2
 mount /dev/disk/by-label/nixos /mnt
 swapon /dev/sda2
 
-# Configure OS
+# Configure
 nixos-generate-config --root /mnt
-# TODO: automate this:
-nano /mnt/etc/nixos/configuration.nix
-# Set the boot.loader.grub.device to /dev/sda
+cp configuration.nix /mnt/etc/nixos/
 
 # Install
 nixos-install
